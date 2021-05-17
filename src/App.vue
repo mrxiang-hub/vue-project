@@ -1,28 +1,29 @@
 <template>
   <div id="app">
-    <div class="box">
-      312321321321
-    </div>
+    <Layout></Layout>
   </div>
 </template>
 
 <script>
+import Layout from '@/components/layout';
+
 export default {
   name: 'App',
-  components: {}
+  components: {
+    Layout
+  }
 }
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-  .box {
-    color: red;
+html, body {
+  width: 100%;
+  height: 100%;
+
+  #app {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
   }
 }
 </style>
