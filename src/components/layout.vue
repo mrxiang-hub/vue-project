@@ -1,6 +1,8 @@
 <template>
   <el-container>
-    <el-aside></el-aside>
+    <el-aside>
+      <NavBar></NavBar>
+    </el-aside>
     <el-container>
       <el-header>
         <div class="log-out">
@@ -15,8 +17,13 @@
 </template>
 
 <script>
+import NavBar from '@/components/navBar'
+
 export default {
   name: "layout",
+  components: {
+    NavBar
+  },
   data() {
     const item = {
       date: '2016-05-02',
@@ -37,7 +44,6 @@ export default {
   .el-aside {
     width: 200px;
     height: 100%;
-    background: #B3C0D1;
   }
 
   .el-container {
