@@ -1,6 +1,10 @@
 <template>
   <el-scrollbar>
-    <el-menu class="el-menu-vertical-demo" :collapse="isCollapse">
+    <el-menu class="el-menu-vertical-demo"
+             background-color="#304156"
+             text-color="#bfcbd9"
+             :collapse="isCollapse"
+    >
       <sideItem
           v-for="(route,index) in routeData"
           :key="index"
@@ -26,13 +30,16 @@ export default {
       routeData: routes
     }
   },
+  created() {
+    console.log(routes)
+  }
 }
 </script>
 
 <style lang="scss" scoped>
 .el-scrollbar {
   height: 100%;
-  background: #334154;
+  background: #304156;
 
   ::v-deep .el-scrollbar__wrap {
     overflow-x: hidden;

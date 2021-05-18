@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
+import Layout from '@/views/layout/index'
 
 export const routes = [
     {
@@ -20,10 +21,10 @@ export const routes = [
             title: '主页',
             hide: false
         },
-        component: () => import('@/views/layout'),
+        component: Layout,
         children: [
             {
-                path: '/dashboard',
+                path: 'dashboard',
                 name: 'Dashboard',
                 component: () => import('@/views/dashboard/dashboard')
             }
@@ -31,15 +32,15 @@ export const routes = [
     },
     {
         path: '/valueTransfer',
-        redirect: '/parentToChildren',
+        redirect: '/valueTransfer/parentToChildren',
         meta: {
             title: '传值',
             hide: false
         },
-        component: () => import('@/views/layout'),
+        component: Layout,
         children: [
             {
-                path: '/parentToChildren',
+                path: 'parentToChildren',
                 name: 'ParentToChildren',
                 meta: {
                     title: '父传子',
@@ -48,7 +49,7 @@ export const routes = [
                 component: () => import('@/views/valueTransfer/parentToChildren')
             },
             {
-                path: '/childrenToParent',
+                path: 'childrenToParent',
                 name: 'ChildrenToParent',
                 meta: {
                     title: '字传父',
@@ -57,7 +58,7 @@ export const routes = [
                 component: () => import('@/views/valueTransfer/childrenToParent')
             },
             {
-                path: '/brotherToBrother',
+                path: 'brotherToBrother',
                 name: 'BrotherToBrother',
                 meta: {
                     title: '兄弟传值',

@@ -3,7 +3,7 @@
     <template v-if="hasOneChildren(item.children)">
       <router-link :to="item.path">
         <el-menu-item :index="item.path">
-          <i class="el-icon-document"></i>
+          <i v-if="hasOneChildren(item.children)" class="el-icon-document"></i>
           <span slot="title">{{ item.meta.title }}</span>
         </el-menu-item>
       </router-link>
@@ -51,22 +51,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.el-menu-item {
-  background-color: rgb(48, 65, 86);
-  color: #bfcbd9;
 
-  i {
-    color: #bfcbd9;
-  }
-}
-
-.router-link-active {
-  .el-menu-item {
-    color: #409eff;
-
-    i {
-      color: #409eff;
-    }
-  }
-}
 </style>
