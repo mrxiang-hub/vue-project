@@ -14,7 +14,7 @@ export const routes = [
         component: () => import('@/views/login/login')
     },
     {
-        path: '',
+        path: '/',
         redirect: '/dashboard',
         meta: {
             title: '主页',

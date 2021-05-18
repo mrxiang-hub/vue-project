@@ -2,7 +2,7 @@
   <div v-if="!item.meta.hide">
     <template v-if="hasOneChildren(item.children)">
       <router-link :to="item.path">
-        <el-menu-item index="item.path">
+        <el-menu-item :index="item.path">
           <i class="el-icon-document"></i>
           <span slot="title">{{ item.meta.title }}</span>
         </el-menu-item>
