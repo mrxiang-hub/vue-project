@@ -3,50 +3,70 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-const routes = [
+export const routes = [
+    {
+        path: '/login',
+        name: 'Login',
+        meta: {
+            title: '登录',
+            hide: true
+        },
+        component: () => import('@/views/login/login')
+    },
     {
         path: '',
-        redirect: '/Dashboard'
+        redirect: '/dashboard',
+        meta: {
+            title: '主页',
+            hide: false
+        },
+        component: () => import('@/views/layout'),
+        children: [
+            {
+                path: '/dashboard',
+                name: 'Dashboard',
+                component: () => import('@/views/dashboard/dashboard')
+            }
+        ]
     },
     {
-        path: '/Dashboard',
-        name: 'Dashboard',
+        path: '/valueTransfer',
+        redirect: '/parentToChildren',
         meta: {
-            title:'主页',
-            module:'Dashboard'
+            title: '传值',
+            hide: false
         },
-        component: () => import('@/pages/Dashboard/Dashboard')
+        component: () => import('@/views/layout'),
+        children: [
+            {
+                path: '/parentToChildren',
+                name: 'ParentToChildren',
+                meta: {
+                    title: '父传子',
+                    hide: false
+                },
+                component: () => import('@/views/valueTransfer/parentToChildren')
+            },
+            {
+                path: '/childrenToParent',
+                name: 'ChildrenToParent',
+                meta: {
+                    title: '字传父',
+                    hide: false
+                },
+                component: () => import('@/views/valueTransfer/childrenToParent')
+            },
+            {
+                path: '/brotherToBrother',
+                name: 'BrotherToBrother',
+                meta: {
+                    title: '兄弟传值',
+                    hide: false
+                },
+                component: () => import('@/views/valueTransfer/brotherToBrother')
+            }
+        ]
     },
-    {
-        path: '/ParentToChildren',
-        name: 'ParentToChildren',
-        meta: {
-            group:'传值',
-            title:'父传子',
-            module:'transfer'
-        },
-        component: ()=> import('@/pages/valueTransfer/parentToChildren')
-    },
-    {
-        path: '/ChildrenToParent',
-        name: 'ChildrenToParent',
-        meta: {
-            group:'传值',
-            title:'子传父',
-            module:'transfer'
-        },
-        component: ()=> import('@/pages/valueTransfer/childrenToParent')
-    },
-    {
-        path: '/BrotherToBrother',
-        name: 'BrotherToBrother',
-        meta: {
-            group:'传值',
-            title:'兄弟传值',
-            module:'transfer'
-        },
-        component: ()=> import('@/pages/valueTransfer/brotherToBrother')
-    }
 ]
 const router = new VueRouter({
     mode: 'history',
