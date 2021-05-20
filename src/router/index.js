@@ -19,13 +19,15 @@ export const routes = [
         redirect: '/dashboard',
         meta: {
             title: '主页',
-            hide: false
         },
         component: Layout,
         children: [
             {
                 path: 'dashboard',
                 name: 'Dashboard',
+                meta: {
+                    title: 'Dashboard'
+                },
                 component: () => import('@/views/dashboard/dashboard')
             }
         ]
@@ -35,7 +37,6 @@ export const routes = [
         redirect: '/valueTransfer/parentToChildren',
         meta: {
             title: '传值',
-            hide: false
         },
         component: Layout,
         children: [
@@ -44,7 +45,6 @@ export const routes = [
                 name: 'ParentToChildren',
                 meta: {
                     title: '父传子',
-                    hide: false
                 },
                 component: () => import('@/views/valueTransfer/parentToChildren')
             },
@@ -53,7 +53,6 @@ export const routes = [
                 name: 'ChildrenToParent',
                 meta: {
                     title: '字传父',
-                    hide: false
                 },
                 component: () => import('@/views/valueTransfer/childrenToParent')
             },
@@ -62,7 +61,6 @@ export const routes = [
                 name: 'BrotherToBrother',
                 meta: {
                     title: '兄弟传值',
-                    hide: false
                 },
                 component: () => import('@/views/valueTransfer/brotherToBrother')
             }

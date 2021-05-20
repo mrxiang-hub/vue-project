@@ -1,50 +1,67 @@
 <template>
   <div v-if="!item.meta.hide">
-    <template v-if="hasOneChildren(item.children)">
-      <router-link :to="item.path">
-        <el-menu-item :index="item.path">
-          <i v-if="hasOneChildren(item.children)" class="el-icon-document"></i>
-          <span slot="title">{{ item.meta.title }}</span>
+    <template v-if="hasOneShowingChild(item.children)">
+      <router-link :to="resolvePath(oneChild)">
+        <el-menu-item :index="resolvePath(oneChild)">
+          <i class="el-icon-document"></i>
+          <span slot="title">{{ oneChild.meta.title }}</span>
         </el-menu-item>
       </router-link>
     </template>
-    <el-submenu v-else :index="item.path" popper-append-to-body>
+    <el-submenu v-else :index="item.path">
       <template slot="title">
-        <div>
-          <i class="el-icon-document"></i>
-          <span slot="title">{{ item.meta.title }}</span>
-        </div>
-        <sideItem
-            v-for="child in item.children"
-            :key="child.path"
-            :item="child"
-        />
+        <i class="el-icon-document"></i>
+        <span slot="title">{{ item.meta.title }}</span>
       </template>
+      <sideItem
+          v-for="child in item.children"
+          :key="child.path"
+          :item="child"
+          :base-path="resolvePath(child.path)"
+      />
     </el-submenu>
   </div>
 </template>
 
 <script>
+import path from "path";
+
 export default {
   name: "sideItem",
   props: {
     item: Object,
-    basePath: String
+    basePath: String,
+  },
+  data() {
+    return {
+      oneChild: {}
+    }
   },
   methods: {
-    /**
-     * 只有一个子菜单
-     * @param data
-     * @returns {boolean}
-     */
-    hasOneChildren(data = []) {
-      let tmp;
-      if (data.length > 1) {
-        tmp = false;
+    hasOneShowingChild(child = []) {
+      // 筛选出不隐藏的子菜单
+      const showingChild = child.filter(x => {
+        if (x.meta.hide) {
+          return false;
+        } else {
+          this.oneChild = x;
+          console.log(this.oneChild)
+          return true;
+        }
+      });
+      if (showingChild.length === 1) {
+        return true;
       } else {
-        tmp = true;
+        return false;
       }
-      return tmp;
+    },
+    /**
+     * 将子菜单path解析成绝对路径
+     * @param childPath
+     * @returns {string}
+     */
+    resolvePath(child) {
+      return path.resolve(this.basePath, child.path);
     }
   }
 }

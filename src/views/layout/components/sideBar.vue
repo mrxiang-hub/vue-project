@@ -30,9 +30,6 @@ export default {
       routeData: routes
     }
   },
-  created() {
-    console.log(routes)
-  }
 }
 </script>
 
