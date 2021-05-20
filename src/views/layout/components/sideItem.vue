@@ -1,6 +1,6 @@
 <template>
   <div v-if="!item.meta.hide">
-    <template v-if="hasOneShowingChild(item.children)">
+    <template v-if="hasOneShowingChild(item.children, item)">
       <router-link :to="resolvePath(oneChild)">
         <el-menu-item :index="resolvePath(oneChild)">
           <i class="el-icon-document"></i>
@@ -17,7 +17,7 @@
           v-for="child in item.children"
           :key="child.path"
           :item="child"
-          :base-path="resolvePath(child.path)"
+          :base-path="resolvePath(child)"
       />
     </el-submenu>
   </div>
@@ -38,22 +38,24 @@ export default {
     }
   },
   methods: {
-    hasOneShowingChild(child = []) {
+    hasOneShowingChild(child = [], parent) {
       // 筛选出不隐藏的子菜单
       const showingChild = child.filter(x => {
         if (x.meta.hide) {
           return false;
         } else {
           this.oneChild = x;
-          console.log(this.oneChild)
           return true;
         }
       });
       if (showingChild.length === 1) {
         return true;
-      } else {
-        return false;
       }
+      if (showingChild.length === 0) {
+        this.oneChild = {...parent, path: '', noShowingChildren: true}
+        return true;
+      }
+      return false;
     },
     /**
      * 将子菜单path解析成绝对路径
