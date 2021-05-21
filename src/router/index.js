@@ -52,7 +52,7 @@ export const routes = [
                 path: 'childrenToParent',
                 name: 'ChildrenToParent',
                 meta: {
-                    title: '字传父',
+                    title: '子传父',
                 },
                 component: () => import('@/views/valueTransfer/childrenToParent')
             },

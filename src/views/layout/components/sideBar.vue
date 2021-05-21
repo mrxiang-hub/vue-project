@@ -4,6 +4,7 @@
              background-color="#304156"
              text-color="#bfcbd9"
              :collapse="isCollapse"
+             :default-active="activeIndex"
     >
       <sideItem
           v-for="(route,index) in routeData"
@@ -27,7 +28,8 @@ export default {
   data() {
     return {
       isCollapse: false,
-      routeData: routes
+      routeData: routes,
+      activeIndex: this.$route.path
     }
   },
 }
@@ -37,15 +39,17 @@ export default {
 .el-scrollbar {
   height: 100%;
   background: #304156;
+  overflow-x: hidden;
 
   ::v-deep .el-scrollbar__wrap {
     overflow-x: hidden;
   }
 
   .el-menu-vertical-demo:not(.el-menu--collapse) {
-    background: transparent;
-    width: 200px;
+    border-right: none;
+    width: 220px;
     min-height: 400px;
+    overflow-x: hidden;
   }
 }
 </style>
