@@ -26,6 +26,7 @@ export const routes = [
                 path: 'dashboard',
                 name: 'Dashboard',
                 meta: {
+                    icon: 'el-icon-platform-eleme',
                     title: 'Dashboard'
                 },
                 component: () => import('@/views/dashboard/dashboard')
@@ -36,6 +37,7 @@ export const routes = [
         path: '/valueTransfer',
         redirect: '/valueTransfer/parentToChildren',
         meta: {
+            icon: 'el-icon-user-solid',
             title: '传值',
         },
         component: Layout,

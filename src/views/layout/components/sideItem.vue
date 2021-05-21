@@ -3,14 +3,14 @@
     <template v-if="hasOneShowingChild(item.children, item)">
       <router-link :to="resolvePath(oneChild)">
         <el-menu-item :index="resolvePath(oneChild)">
-          <i class="el-icon-document"></i>
+          <i :class="oneChild.meta.icon"></i>
           <span slot="title">{{ oneChild.meta.title }}</span>
         </el-menu-item>
       </router-link>
     </template>
     <el-submenu v-else :index="item.path">
       <template slot="title">
-        <i class="el-icon-document"></i>
+        <i :class="item.meta.icon"></i>
         <span slot="title">{{ item.meta.title }}</span>
       </template>
       <sideItem

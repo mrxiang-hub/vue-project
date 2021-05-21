@@ -48,11 +48,24 @@ export default {
     overflow-x: hidden;
   }
 
+  .el-menu {
+    border: none;
+  }
+
   .el-menu-vertical-demo:not(.el-menu--collapse) {
-    border-right: none;
     width: 220px;
     min-height: 400px;
     overflow-x: hidden;
+  }
+
+  /*隐藏文字*/
+  ::v-deep .el-menu--collapse .el-submenu__title span {
+    display: none;
+  }
+
+  /*隐藏 > */
+  ::v-deep .el-menu--collapse .el-submenu__title .el-submenu__icon-arrow {
+    display: none;
   }
 }
 </style>
