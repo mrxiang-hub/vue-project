@@ -19,6 +19,7 @@
 <script>
 import {routes} from '@/router/index';
 import sideItem from "@/views/layout/components/sideItem";
+import {mapGetters} from 'vuex';
 
 export default {
   name: "sideBar",
@@ -27,10 +28,12 @@ export default {
   },
   data() {
     return {
-      isCollapse: false,
       routeData: routes,
       activeIndex: this.$route.path
     }
+  },
+  computed: {
+    ...mapGetters(['isCollapse'])
   },
 }
 </script>
