@@ -4,8 +4,8 @@
     <el-container>
       <el-header>
         <div class="hamburger" @click="isCollapseMenu">
-          <i class="el-icon-s-fold"></i>
-          <i class="el-icon-s-unfold"></i>
+          <i class="el-icon-s-unfold" v-if="flag"></i>
+          <i class="el-icon-s-fold" v-else></i>
         </div>
       </el-header>
       <el-main>
@@ -17,6 +17,7 @@
 
 <script>
 import SideBar from './components/sideBar';
+import {mapMutations} from 'vuex'
 
 export default {
   name: "index",
@@ -24,11 +25,17 @@ export default {
     SideBar
   },
   data() {
-    return {}
+    return {
+      flag: false
+    }
   },
   methods: {
+    ...mapMutations({
+      updateCollapse: 'menu/UPDATE_ISCOLLAPSE'
+    }),
     isCollapseMenu() {
-
+      this.flag = !this.flag;
+      this.updateCollapse(this.flag);
     }
   }
 }

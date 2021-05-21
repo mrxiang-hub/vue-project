@@ -8,10 +8,7 @@ export default {
             state.isCollapse = bool;
         }
     },
-    actions: {},
-    getters: {
-        isCollapse: state => state.isCollapse
-    }
+    actions: {}
 }
 
 
