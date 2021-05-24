@@ -1,12 +1,25 @@
 <template>
   <div class="brother2">
     <h3 class="title">组件2</h3>
+    {{ txt }}
   </div>
 </template>
 
 <script>
+import Bus from './bus';
+
 export default {
-  name: "brother2"
+  name: "brother2",
+  data() {
+    return {
+      txt: 'Hello World!!!'
+    }
+  },
+  created() {
+    Bus.$on('sendVal', str => {
+      this.txt = str;
+    })
+  }
 }
 </script>
 

@@ -1,12 +1,22 @@
 <template>
   <div class="brother1">
     <h3 class="title">组件1</h3>
+    <el-button
+        @click="sendVal"
+    >传值
+    </el-button>
   </div>
 </template>
 
 <script>
+import Bus from './bus';
 export default {
-  name: "brother1"
+  name: "brother1",
+  methods: {
+    sendVal() {
+      Bus.$emit('sendVal', 'Hello Vue!!!')
+    }
+  }
 }
 </script>
 
