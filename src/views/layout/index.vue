@@ -7,6 +7,9 @@
           <i class="el-icon-s-unfold" v-if="flag"></i>
           <i class="el-icon-s-fold" v-else></i>
         </div>
+        <div class="logout">
+          <i class="el-icon-switch-button"></i>
+        </div>
       </el-header>
       <el-main>
         <router-view/>
@@ -50,12 +53,26 @@ export default {
     box-shadow: 0 1px 4px rgb(0 21 41 / 8%);
     display: flex;
     align-items: center;
+    justify-content: space-between;
 
     .hamburger {
       display: inline-block;
       font-size: 25px;
       cursor: pointer;
       color: #404040;
+    }
+
+    .logout {
+      font-size: 25px;
+      cursor: pointer;
+
+      &:hover {
+        color: #F56C6C;
+      }
+
+      &:active {
+        transform: translateY(2px);
+      }
     }
   }
 }
