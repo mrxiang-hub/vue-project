@@ -1,9 +1,10 @@
 <template>
   <div class="parentToChildren">
+    <h3 class="title">父组件</h3>
     <el-button
         @click="editVal"
         type="primary"
-    >父传子
+    >传值
     </el-button>
     <Child
         :txt="readyTxt"
@@ -21,17 +22,28 @@ export default {
   },
   data() {
     return {
-      readyTxt: '我是父组件中的值'
+      readyTxt: "Hello World！！！"
     }
   },
   methods: {
     editVal() {
-      this.readyTxt = 'change'
+      this.readyTxt = 'Hello Vue！！！'
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.parentToChildren {
+  border: 1px solid #DCDFE6;
+  padding: 40px;
+  text-align: center;
 
+  .title {
+    line-height: 40px;
+    color: #303133;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
 </style>

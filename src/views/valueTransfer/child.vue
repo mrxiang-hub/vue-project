@@ -1,12 +1,11 @@
 <template>
   <div class="child">
+    <h3 class="title">
+      我是子组件
+    </h3>
     <div class="val">
       {{ txt }}
     </div>
-    <el-button type="primary"
-               @click="emitVal"
-    >子传父
-    </el-button>
   </div>
 </template>
 
@@ -15,20 +14,23 @@ export default {
   name: "child",
   props: {
     txt: String
-  },
-  methods: {
-    /**
-     * 子组件向父组件传值
-     */
-    emitVal() {
-      this.$emit('changeVal', '我是子组件传过来的值')
-    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
 .child {
+  height: 100px;
+  margin-top: 20px;
+  border: 1px solid #DCDFE6;
+
+  .title {
+    line-height: 40px;
+    color: #303133;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
   .val {
     padding: 20px 0;
   }
