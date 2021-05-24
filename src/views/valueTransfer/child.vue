@@ -1,7 +1,7 @@
 <template>
   <div class="child">
     <h3 class="title">
-      我是子组件
+      子组件
     </h3>
     <div class="val">
       {{ txt }}
