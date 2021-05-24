@@ -3,7 +3,7 @@
     <el-button
         @click="editVal"
         type="primary"
-    >修改
+    >父传子
     </el-button>
     <Child
         :txt="readyTxt"
