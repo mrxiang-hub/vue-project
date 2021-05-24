@@ -36,7 +36,7 @@ export default {
 <style lang="scss" scoped>
 .parentToChildren {
   border: 1px solid #DCDFE6;
-  padding: 40px;
+  padding: 0 40px 40px;
   text-align: center;
 
   .title {
