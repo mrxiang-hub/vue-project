@@ -2,6 +2,7 @@
   <div class="brother1">
     <h3 class="title">组件1</h3>
     <el-button
+        type="primary"
         @click="sendVal"
     >传值
     </el-button>
@@ -10,6 +11,7 @@
 
 <script>
 import Bus from './bus';
+
 export default {
   name: "brother1",
   methods: {

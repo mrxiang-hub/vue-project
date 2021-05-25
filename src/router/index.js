@@ -65,6 +65,14 @@ export const routes = [
                     title: '兄弟传值',
                 },
                 component: () => import('@/views/valueTransfer/brotherToBrother')
+            },
+            {
+                path: 'Provide',
+                name: 'Provide',
+                meta: {
+                    title: 'provide/inject',
+                },
+                component: () => import('@/views/valueTransfer/provide')
             }
         ]
     },
