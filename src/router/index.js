@@ -73,6 +73,14 @@ export const routes = [
                     title: 'provide/inject',
                 },
                 component: () => import('@/views/valueTransfer/provide')
+            },
+            {
+                path: 'Vuex',
+                name: 'Vuex',
+                meta: {
+                    title: 'Vuex传值',
+                },
+                component: () => import('@/views/valueTransfer/vuexTransfer')
             }
         ]
     },
