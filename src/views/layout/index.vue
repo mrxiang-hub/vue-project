@@ -7,7 +7,7 @@
           <i class="el-icon-s-unfold" v-if="flag"></i>
           <i class="el-icon-s-fold" v-else></i>
         </div>
-        <div class="logout">
+        <div class="logout" @click="logout">
           <i class="el-icon-switch-button"></i>
         </div>
       </el-header>
@@ -39,6 +39,9 @@ export default {
     isCollapseMenu() {
       this.flag = !this.flag;
       this.updateCollapse(this.flag);
+    },
+    logout() {
+      this.$router.replace('/login');
     }
   }
 }
