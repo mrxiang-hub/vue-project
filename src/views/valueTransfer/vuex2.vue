@@ -1,12 +1,20 @@
 <template>
   <div class="vuex2">
     <h3 class="title">组件2</h3>
+    <div class="val-box">
+      {{ val }}
+    </div>
   </div>
 </template>
 
 <script>
+import {mapGetters} from 'vuex';
+
 export default {
-  name: "vuex2"
+  name: "vuex2",
+  computed: {
+    ...mapGetters(['val'])
+  }
 }
 </script>
 
@@ -21,6 +29,10 @@ export default {
     color: #303133;
     font-size: 20px;
     font-weight: bold;
+  }
+
+  .val-box {
+    margin: 10px;
   }
 }
 </style>
