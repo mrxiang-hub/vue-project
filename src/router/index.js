@@ -92,25 +92,7 @@ export const routes = [
             }
         ]
     },
-    {
-        path: '/lifeCycle',
-        meta: {
-            icon: 'el-icon-star-on',
-            title: '生命周期',
-        },
-        component: Layout,
-        children: [
-            {
-                path: '',
-                name: 'LifeCycle',
-                meta: {
-                    icon: 'el-icon-star-on',
-                    title: 'The life cycle',
-                },
-                component: () => import('@/views/ lifeCycle/lifeCycle')
-            }
-        ]
-    }
+   
 ]
 const router = new VueRouter({
     mode: 'history',
