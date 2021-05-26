@@ -19,15 +19,23 @@ export const routes = [
         redirect: '/dashboard',
         meta: {
             title: '主页',
+            hide: true
+        },
+    },
+    {
+        path: '/dashboard',
+        meta: {
+            icon: 'el-icon-platform-eleme',
+            title: '主页',
         },
         component: Layout,
         children: [
             {
-                path: 'dashboard',
-                name: 'Dashboard',
+                path: '',
+                name: 'dashboard',
                 meta: {
                     icon: 'el-icon-platform-eleme',
-                    title: 'Dashboard'
+                    title: 'Dashboard',
                 },
                 component: () => import('@/views/dashboard/dashboard')
             }
@@ -84,6 +92,25 @@ export const routes = [
             }
         ]
     },
+    {
+        path: '/lifeCycle',
+        meta: {
+            icon: 'el-icon-star-on',
+            title: '生命周期',
+        },
+        component: Layout,
+        children: [
+            {
+                path: '',
+                name: 'LifeCycle',
+                meta: {
+                    icon: 'el-icon-star-on',
+                    title: 'The life cycle',
+                },
+                component: () => import('@/views/ lifeCycle/lifeCycle')
+            }
+        ]
+    }
 ]
 const router = new VueRouter({
     mode: 'history',
