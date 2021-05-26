@@ -92,7 +92,25 @@ export const routes = [
             }
         ]
     },
-   
+    {
+        path: '/keepAlive',
+        meta: {
+            title: '路由缓存',
+            icon: 'el-icon-star-on'
+        },
+        component: Layout,
+        children: [
+            {
+                path: '',
+                name: 'KeepAlive',
+                meta: {
+                    title: 'KeepAlive',
+                    icon: 'el-icon-star-on'
+                },
+                component: () => import('@/views/keepAlive/keepAlive')
+            }
+        ]
+    }
 ]
 const router = new VueRouter({
     mode: 'history',
