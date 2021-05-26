@@ -12,7 +12,9 @@
         </div>
       </el-header>
       <el-main>
-        <router-view/>
+        <keep-alive :include="keepRoutes">
+          <router-view/>
+        </keep-alive>
       </el-main>
     </el-container>
   </el-container>
@@ -29,7 +31,10 @@ export default {
   },
   data() {
     return {
-      flag: false
+      flag: false,
+      keepRoutes: [
+        'keepAlive'
+      ]
     }
   },
   methods: {
@@ -42,8 +47,8 @@ export default {
     },
     logout() {
       this.$router.replace('/login');
-    }
-  }
+    },
+  },
 }
 </script>
 

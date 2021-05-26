@@ -105,7 +105,8 @@ export const routes = [
                 name: 'KeepAlive',
                 meta: {
                     title: 'KeepAlive',
-                    icon: 'el-icon-star-on'
+                    icon: 'el-icon-star-on',
+                    keepAlive: true
                 },
                 component: () => import('@/views/keepAlive/keepAlive')
             }
