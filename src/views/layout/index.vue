@@ -12,8 +12,8 @@
         </div>
       </el-header>
       <el-main>
-        <keep-alive :include="keepRoutes">
-          <router-view/>
+        <keep-alive :include="alives">
+          <router-view :key="$route.fullPath"/>
         </keep-alive>
       </el-main>
     </el-container>
@@ -32,7 +32,7 @@ export default {
   data() {
     return {
       flag: false,
-      keepRoutes: [
+      alives: [
         'keepAlive'
       ]
     }
