@@ -135,7 +135,7 @@ export const routes = [
                 meta: {
                     title: '路由钩子',
                 },
-                component: () => import('@/views/hookFn/life')
+                component: () => import('@/views/hookFn/routing')
             },
         ]
     }
