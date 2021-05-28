@@ -5,7 +5,8 @@
       <div class="desc">路由钩子的主要功能是用来做路由守卫，在进入路由之前或者之后做一些拦截或者其他操作</div>
       <ul class="list">
         <li>
-          1: 全局路由钩子函数： beforeEach, afterEach
+          1: 全局路由钩子函数： beforeEach, afterEach <br/>
+
         </li>
         <li>
           2: 单个路由钩子函数： beforeEnter
