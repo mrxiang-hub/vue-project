@@ -111,6 +111,33 @@ export const routes = [
                 component: () => import('@/views/keepAlive/keepAlive')
             }
         ]
+    },
+    {
+        path: '/hookFn',
+        redirect: '/hookFn/life',
+        meta: {
+            title: '钩子函数',
+            icon: 'el-icon-s-promotion'
+        },
+        component: Layout,
+        children: [
+            {
+                path: 'life',
+                name: 'Life',
+                meta: {
+                    title: '生命周期钩子',
+                },
+                component: () => import('@/views/hookFn/life')
+            },
+            {
+                path: 'routing',
+                name: 'Routing',
+                meta: {
+                    title: '路由钩子',
+                },
+                component: () => import('@/views/hookFn/life')
+            },
+        ]
     }
 ]
 const router = new VueRouter({
