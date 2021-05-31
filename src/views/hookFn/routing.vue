@@ -12,7 +12,7 @@
           2: 单个路由钩子函数： beforeEnter
         </li>
         <li>
-          3: 全局路由钩子函数： beforeRouteEnter, beforeRouteLeave, beforeRouteUpdate
+          3: 组件内路由钩子函数： beforeRouteEnter, beforeRouteLeave, beforeRouteUpdate
         </li>
       </ul>
     </div>
