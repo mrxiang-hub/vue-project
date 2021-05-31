@@ -12,7 +12,7 @@
         </div>
       </el-header>
       <el-main>
-        <transition name="fade" mode="out-in">
+        <transition name="fade-transform" mode="out-in">
           <keep-alive :include="alives">
             <router-view :key="$route.fullPath"/>
           </keep-alive>
@@ -85,19 +85,21 @@ export default {
       }
     }
   }
+
+  .fade-transform-leave-active,
+  .fade-transform-enter-active {
+    transition: all .5s;
+  }
+
+  .fade-transform-enter {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  .fade-transform-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+  }
 }
 
-.fade-enter-active {
-  transition: opacity .5s;
-}
-
-.fade-leave-active {
-  transform: translate(-10px, 0);
-  opacity: 0.5;
-  transition: all 0.5s;
-}
-
-.fade-enter, .fade-leave-to {
-  opacity: 0;
-}
 </style>
