@@ -12,9 +12,11 @@
         </div>
       </el-header>
       <el-main>
-        <keep-alive :include="alives">
-          <router-view :key="$route.fullPath"/>
-        </keep-alive>
+        <transition name="fade" mode="out-in">
+          <keep-alive :include="alives">
+            <router-view :key="$route.fullPath"/>
+          </keep-alive>
+        </transition>
       </el-main>
     </el-container>
   </el-container>
@@ -34,7 +36,7 @@ export default {
       flag: false,
       alives: [
         'keepAlive'
-      ]
+      ],
     }
   },
   methods: {
@@ -48,7 +50,7 @@ export default {
     logout() {
       this.$router.replace('/login');
     },
-  },
+  }
 }
 </script>
 
@@ -83,5 +85,19 @@ export default {
       }
     }
   }
+}
+
+.fade-enter-active {
+  transition: opacity .5s;
+}
+
+.fade-leave-active {
+  transform: translate(-10px, 0);
+  opacity: 0.5;
+  transition: all 0.5s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 </style>
