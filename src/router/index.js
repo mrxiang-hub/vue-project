@@ -138,6 +138,25 @@ export const routes = [
                 component: () => import('@/views/hookFn/routing')
             },
         ]
+    },
+    {
+        path: '/bridge',
+        meta: {
+            title: 'Bridge',
+            icon: 'el-icon-s-tools'
+        },
+        component: Layout,
+        children: [
+            {
+                path: '',
+                name: 'Bridge',
+                meta: {
+                    title: '双向绑定',
+                    icon: 'el-icon-s-tools'
+                },
+                component: () => import('@/views/bridge/bridge')
+            }
+        ]
     }
 ]
 const router = new VueRouter({
