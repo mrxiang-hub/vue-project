@@ -140,10 +140,10 @@ export const routes = [
         ]
     },
     {
-        path: '/bridge',
+        path: '/chart',
         meta: {
-            title: 'Bridge',
-            icon: 'el-icon-s-tools'
+            title: 'Chart',
+            icon: 'el-icon-s-operation'
         },
         component: Layout,
         children: [
@@ -151,10 +151,10 @@ export const routes = [
                 path: '',
                 name: 'Bridge',
                 meta: {
-                    title: '双向绑定',
-                    icon: 'el-icon-s-tools'
+                    title: '图表',
+                    icon: 'el-icon-s-operation'
                 },
-                component: () => import('@/views/bridge/bridge')
+                component: () => import('@/views/chart/chart')
             }
         ]
     }
