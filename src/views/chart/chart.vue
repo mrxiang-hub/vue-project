@@ -20,16 +20,15 @@ export default {
       let chart = this.$echarts.init(this.$refs['map']);
       let option = {
         xAxis: {
-          type: 'category',
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+          show: false
         },
         yAxis: {
-          type: 'value'
+          show: false
         },
-        series: [{
-          data: [150, 230, 224, 218, 135, 147, 260],
-          type: 'line'
-        }]
+        geo: {
+          map: 'china',
+          roam: true
+        }
       };
       chart.setOption(option);
     }

@@ -6,10 +6,12 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import '@/scss/reset.scss';
 import * as echarts from 'echarts';
+import China from '@/assets/map/china.json';
 
 Vue.use(ElementUI);
 
 Vue.config.productionTip = false;
+echarts.registerMap('china', China);
 Vue.prototype.$echarts = echarts;
 
 new Vue({
