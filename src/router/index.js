@@ -157,6 +157,25 @@ export const routes = [
                 component: () => import('@/views/chart/chart')
             }
         ]
+    },
+    {
+        path: '/placeholder',
+        meta: {
+            title: 'slot',
+            icon: 'el-icon-picture'
+        },
+        component: Layout,
+        children: [
+            {
+                path: '',
+                name: 'Placeholder',
+                meta: {
+                    title: '插槽',
+                    icon: 'el-icon-picture'
+                },
+                component: () => import('@/views/placeholder/placeholder')
+            }
+        ]
     }
 ]
 const router = new VueRouter({
