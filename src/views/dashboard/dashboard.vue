@@ -1,14 +1,28 @@
 <template>
   <div>
-    <h1 class="description">
-      Vue2.x学习笔记
-    </h1>
+    <Simple v-model="val"/>
+    <button @click="getData">点击</button>
   </div>
 </template>
 
 <script>
+import Simple from './simple';
+
 export default {
-name: "Dashboard"
+  name: "Dashboard",
+  components: {
+    Simple
+  },
+  data() {
+    return {
+      val: ''
+    }
+  },
+  methods: {
+    getData() {
+      console.log(this.val);
+    }
+  }
 }
 </script>
 
