@@ -18,7 +18,8 @@ export default {
         {
           label: '意见内容',
           prop: 'content',
-          element: 'el-input'
+          element: 'el-input',
+          clearable: true
         },
         {
           label: '类型',
@@ -33,7 +34,10 @@ export default {
           label: '状态',
           prop: 'status',
           element: 'el-select',
-          options: []
+          options: [
+            {label: '给点意见', value: '1'},
+            {label: '售后问题', value: '2'}
+          ]
         },
         {
           label: '提交时间',
