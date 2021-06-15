@@ -1,6 +1,6 @@
 <template>
   <div class="placeholder">
-    <searchForm :formOptions="formOptions" @onSearch="onSearch"/>
+    <searchForm :formOptions="formOptions" :btnItems="btnGroup" @onSearch="onSearch"/>
   </div>
 </template>
 
@@ -16,18 +16,18 @@ export default {
     return {
       formOptions: [
         {
-          label: '意见内容',
-          prop: 'content',
+          label: '用户ID',
+          prop: 'id',
           element: 'el-input',
           clearable: true
         },
         {
-          label: '类型',
+          label: '账户类型',
           prop: 'type',
           element: 'el-select',
           options: [
-            {label: '给点意见', value: '1'},
-            {label: '售后问题', value: '2'}
+            {label: '管理员', value: '1'},
+            {label: '操作员', value: '2'}
           ]
         },
         {
@@ -35,16 +35,18 @@ export default {
           prop: 'status',
           element: 'el-select',
           options: [
-            {label: '给点意见', value: '1'},
-            {label: '售后问题', value: '2'}
+            {label: '冻结', value: '1'},
+            {label: '正常', value: '2'}
           ]
         },
         {
-          label: '提交时间',
-          prop: 'timeRange',
-          element: 'el-date-picker'
+          label: '创建时间',
+          prop: 'createdTime',
+          element: 'el-date-picker',
+          type: 'datetime'
         }
-      ]
+      ],
+      btnGroup: ['search', 'export', 'reset']
     }
   },
   methods: {
