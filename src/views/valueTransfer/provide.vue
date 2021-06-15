@@ -28,7 +28,8 @@ export default {
   provide() {
     return {
       str: this.str,
-      data: this.$data
+      data: this.$data,
+      meth:this.changeVal
     }
   },
   data() {

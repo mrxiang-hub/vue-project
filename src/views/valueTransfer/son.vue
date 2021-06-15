@@ -1,6 +1,6 @@
 <template>
   <div class="son">
-    <h3 class="title">子组件</h3>
+    <h3 class="title" @click='pre'>子组件</h3>
     <div class="strBox">{{ str }}</div>
     <div>{{ data.demo }}</div>
     <Grandson></Grandson>
@@ -12,9 +12,14 @@ import Grandson from './grandson';
 
 export default {
   name: "son",
-  inject: ['str', 'data'],
+  inject: ['str', 'data',"meth"],
   components: {
     Grandson
+  },
+  methods:{
+    pre(){
+      this.meth()
+    }
   }
 }
 </script>

@@ -10,4 +10,8 @@ module.exports = {
     //         patterns: []
     //     }
     // }
+    css: {
+        sourceMap: true
+    }
+
 }
