@@ -19,6 +19,14 @@ export default {
           label: '用户ID',
           prop: 'id',
           element: 'el-input',
+          rules: [
+            {
+              required: true,
+              message: '用户ID不能为空',
+              trigger: 'blur'
+            }
+          ],
+          placeholder: '请输入用户ID',
           clearable: true
         },
         {
