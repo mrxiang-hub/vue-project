@@ -8,7 +8,7 @@
 import searchForm from "@/components/searchForm";
 
 export default {
-  name: "placeholder",
+  name: "search",
   components: {
     searchForm
   },
