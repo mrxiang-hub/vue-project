@@ -159,21 +159,21 @@ export const routes = [
         ]
     },
     {
-        path: '/placeholder',
+        path: '/search',
         meta: {
-            title: 'slot',
+            title: '搜索栏',
             icon: 'el-icon-picture'
         },
         component: Layout,
         children: [
             {
                 path: '',
-                name: 'Placeholder',
+                name: 'Search',
                 meta: {
-                    title: '插槽',
+                    title: '搜索栏',
                     icon: 'el-icon-picture'
                 },
-                component: () => import('@/views/placeholder/placeholder')
+                component: () => import('@/views/search/search')
             }
         ]
     }

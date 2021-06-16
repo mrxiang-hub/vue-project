@@ -83,9 +83,9 @@ export default {
     },
     // 提交按钮项，多个用逗号分隔（search, export, reset）
     btnItems: {
-      type: String,
+      type: Array,
       default () {
-        return 'search'
+        return ['search']
       }
     }
   },
