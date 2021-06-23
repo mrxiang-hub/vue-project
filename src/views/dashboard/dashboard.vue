@@ -1,6 +1,6 @@
 <template>
   <div>
-    Vue学习笔记111
+    Vue学习笔记
   </div>
 </template>
 
