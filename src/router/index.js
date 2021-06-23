@@ -176,6 +176,25 @@ export const routes = [
                 component: () => import('@/views/search/search')
             }
         ]
+    },
+    {
+        path:'/hole',
+        meta: {
+            title:'插槽',
+            icon: 'el-icon-s-shop'
+        },
+        component: Layout,
+        children: [
+            {
+                path: '',
+                name: 'Hole',
+                meta: {
+                    title: '插槽',
+                    icon: 'el-icon-s-shop'
+                },
+                component: () => import('@/views/hole/hole')
+            }
+        ]
     }
 ]
 const router = new VueRouter({
