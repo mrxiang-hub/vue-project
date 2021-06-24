@@ -4,12 +4,41 @@
     <div class="desc" v-for="(item,index) in desc" :key="index">
       <p v-html="item"></p>
     </div>
+    <Modal>
+      <template v-slot>
+        demo
+      </template>
+      // 这里使用了结构赋值，也可以是用使用一个变量来表示{data}，比如使用slotProps表示{data}，下面赋值可写成slotProps.data.name
+      <template #content="{data}">
+        <div class="info">
+          {{ data.name }}
+        </div>
+        <div class="info">
+          {{ data.age }}
+        </div>
+        <div class="info">
+          {{ data.work }}
+        </div>
+        <div class="info">
+          {{ data.address }}
+        </div>
+      </template>
+      <template #footer>
+        <el-button type="primary">确认</el-button>
+        <el-button>取消</el-button>
+      </template>
+    </Modal>
   </div>
 </template>
 
 <script>
+import Modal from './modal';
+
 export default {
   name: "hole",
+  components: {
+    Modal
+  },
   data() {
     return {
       desc: [
@@ -34,6 +63,10 @@ export default {
   .desc {
     font-size: 12px;
     line-height: 30px;
+  }
+
+  .info {
+    line-height: 40px;
   }
 }
 </style>
