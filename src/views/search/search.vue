@@ -1,6 +1,10 @@
 <template>
   <div class="placeholder">
-    <searchForm :formOptions="formOptions" :btnItems="btnGroup" @onSearch="onSearch"/>
+    <searchForm
+        :formOptions="formOptions"
+        :btnItems="btnGroup"
+        @onSearch="onSearch"
+    />
   </div>
 </template>
 
@@ -19,6 +23,7 @@ export default {
           label: '用户ID',
           prop: 'id',
           element: 'el-input',
+          initValue:undefined,
           rules: [
             {
               required: true,

@@ -7,7 +7,7 @@
     >
       <el-form-item
           v-for="(item, index) in formOptions"
-          :key="newKeys[index]"
+          :key="index"
           :prop="item.prop"
           :label="item.label ? (item.label + '：') : ''"
           :rules="item.rules"
@@ -17,40 +17,39 @@
             :itemOptions="item"
         />
       </el-form-item>
+      <!--      操作按钮-->
+      <el-form-item>
+        <el-button
+            v-if="btnItems.includes('search')"
+            size="mini"
+            type="primary"
+            class="btn-search"
+            @click="onSearch"
+        >搜索
+        </el-button>
+        <el-button
+            v-if="btnItems.includes('export')"
+            size="mini"
+            type="primary"
+            class="btn-export"
+            @click="onExport"
+        >导出
+        </el-button>
+        <el-button
+            v-if="btnItems.includes('reset')"
+            size="mini"
+            type="default"
+            class="btn-reset"
+            @click="onReset"
+        >重置
+        </el-button>
+      </el-form-item>
     </el-form>
-
-    <!-- 提交按钮 -->
-    <div class="btn-box">
-      <el-button
-          v-if="btnItems.includes('search')"
-          size="mini"
-          type="primary"
-          class="btn-search"
-          @click="onSearch"
-      >搜索</el-button>
-
-      <el-button
-          v-if="btnItems.includes('export')"
-          size="mini"
-          type="primary"
-          class="btn-export"
-          @click="onExport"
-      >导出</el-button>
-
-      <el-button
-          v-if="btnItems.includes('reset')"
-          size="mini"
-          type="default"
-          class="btn-reset"
-          @click="onReset"
-      >重置</el-button>
-    </div>
   </div>
 </template>
 
 <script>
 import formItem from './formItem'
-import tools from '@/utils/tools'
 
 export default {
   name: 'searchForm',
@@ -77,76 +76,66 @@ export default {
     formOptions: {
       type: Array,
       required: true,
-      default () {
+      default() {
         return []
       }
     },
     // 提交按钮项，多个用逗号分隔（search, export, reset）
     btnItems: {
       type: Array,
-      default () {
+      default() {
         return ['search']
       }
     }
   },
 
-  data () {
+  data() {
     return {
       formData: {}
     }
   },
-
-  computed: {
-    newKeys () {
-      return this.formOptions.map(() => {
-        return tools.createUniqueString()
-      })
-    }
-  },
-
-  created () {
+  created() {
     this.addInitValue()
   },
 
   methods: {
     // 校验
-    onValidate (callback) {
+    onValidate(callback) {
       this.$refs.formRef.validate(valid => {
         if (valid) {
-          console.log('提交成功')
-          console.log(this.formData)
-          callback()
+          callback();
+        } else {
+          return false;
         }
       })
     },
     // 搜索
-    onSearch () {
+    onSearch() {
       this.onValidate(() => {
         this.$emit('onSearch', this.formData)
       })
     },
     // 导出
-    onExport () {
+    onExport() {
       this.onValidate(() => {
         this.$emit('onExport', this.formData)
       })
     },
-    onReset () {
+    onReset() {
       this.$refs.formRef.resetFields()
     },
     // 添加初始值
-    addInitValue () {
+    addInitValue() {
       const obj = {}
-      this.formOptions.forEach(v => {
-        if (v.initValue !== undefined) {
-          obj[v.prop] = v.initValue
+      this.formOptions.forEach(curr => {
+        if (curr.initValue !== undefined) {
+          obj[curr.prop] = curr.initValue
         }
       })
       this.formData = obj
     }
   },
-
-  components: { formItem }
+  components: {formItem}
 }
 </script>
 
@@ -163,30 +152,6 @@ export default {
       height: 28px;
     }
   }
-  //.el-form {
-  //  ::v-deep.el-form-item__label {
-  //    padding-right: 0;
-  //  }
-  //  .el-form-item {
-  //    margin-bottom: 0;
-  //
-  //    &.is-error {
-  //      margin-bottom: 22px;
-  //    }
-  //  }
-  //  // el-input宽度
-  //  ::v-deep .form-item {
-  //    &> .el-input:not(.el-date-editor) {
-  //      width: 120px;
-  //    }
-  //  }
-  //  ::v-deep .el-select {
-  //    width: 120px;
-  //  }
-  //  ::v-deep .el-cascader {
-  //    width: 200px;
-  //  }
-  //}
 }
 
 </style>
