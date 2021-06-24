@@ -4,7 +4,12 @@
         :formOptions="formOptions"
         :btnItems="btnGroup"
         @onSearch="onSearch"
-    />
+    >
+      <template #btns>
+        <el-button type="primary" size="mini">批量导入</el-button>
+        <el-button type="danger" size="mini">批量删除</el-button>
+      </template>
+    </searchForm>
   </div>
 </template>
 
@@ -23,7 +28,7 @@ export default {
           label: '用户ID',
           prop: 'id',
           element: 'el-input',
-          initValue:undefined,
+          initValue: undefined,
           rules: [
             {
               required: true,
@@ -59,7 +64,8 @@ export default {
           type: 'datetime'
         }
       ],
-      btnGroup: ['search', 'export', 'reset']
+      //'search', 'export', 'reset'
+      btnGroup: ['search']
     }
   },
   methods: {

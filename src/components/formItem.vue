@@ -102,13 +102,13 @@ export default {
     value: {},
     itemOptions: {
       type: Object,
-      default () {
+      default() {
         return {}
       }
     }
   },
 
-  data () {
+  data() {
     return {
       pickerOptionsRange: tools.pickerOptionsRange,
       pickerOptionsRangeMonth: tools.pickerOptionsRangeMonth
@@ -118,16 +118,16 @@ export default {
   computed: {
     // 双向绑定数据值
     currentVal: {
-      get () {
+      get() {
         return this.value
       },
-      set (val) {
+      set(val) {
         this.$emit('input', val)
       }
     },
     // 绑定属性
-    bindProps () {
-      let obj = { ...this.itemOptions }
+    bindProps() {
+      let obj = {...this.itemOptions}
       // 移除冗余属性
       delete obj.label
       delete obj.prop
@@ -141,23 +141,23 @@ export default {
       return obj
     },
     // 绑定方法
-    bindEvents () {
+    bindEvents() {
       return this.itemOptions.events || {}
     },
     // el-input
-    isInput () {
+    isInput() {
       return this.itemOptions.element === 'el-input'
     },
     // el-input-number
-    isInputNumber () {
+    isInputNumber() {
       return this.itemOptions.element === 'el-input-number'
     },
     // el-select
-    isSelect () {
+    isSelect() {
       return this.itemOptions.element === 'el-select'
     },
     // el-date-picker (type: datetimerange/daterange)
-    isDatePickerDateRange () {
+    isDatePickerDateRange() {
       const isDatePicker = this.itemOptions.element === 'el-date-picker'
       const isDateRange = !this.itemOptions.type ||
           this.itemOptions.type === 'datetimerange' ||
@@ -165,23 +165,24 @@ export default {
       return isDatePicker && isDateRange
     },
     // el-date-picker (type: monthrange)
-    isDatePickerMonthRange () {
+    isDatePickerMonthRange() {
       const isDatePicker = this.itemOptions.element === 'el-date-picker'
       const isMonthRange = this.itemOptions.type === 'monthrange'
       return isDatePicker && isMonthRange
     },
     //  el-date-picker (type: other)
-    isDatePickerOthers () {
+    isDatePickerOthers() {
       const isDatePicker = this.itemOptions.element === 'el-date-picker'
       return isDatePicker && !this.isDatePickerDateRange && !this.isDatePickerMonthRange
     },
     // el-cascader
-    isCascader () {
+    isCascader() {
       return this.itemOptions.element === 'el-cascader'
     }
   },
 
-  created () {},
+  created() {
+  },
 
   methods: {},
 

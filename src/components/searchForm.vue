@@ -43,6 +43,9 @@
             @click="onReset"
         >重置
         </el-button>
+        <div class="btn-box">
+          <slot name="btns"></slot>
+        </div>
       </el-form-item>
     </el-form>
   </div>
@@ -143,16 +146,11 @@ export default {
 .search-form-box {
   display: flex;
   margin-bottom: 15px;
-
-  .btn-box {
-    padding-top: 5px;
-    display: flex;
-
-    button {
-      height: 28px;
-    }
-  }
 }
 
+.btn-box {
+  display: inline-block;
+  margin-left: 10px;
+}
 </style>
 
