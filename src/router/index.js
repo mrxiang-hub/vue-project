@@ -221,6 +221,25 @@ export const routes = [
                 component: () => import('@/views/mix/example2')
             }
         ]
+    },
+    {
+        path: '/render',
+        meta: {
+            title: 'render函数',
+            icon: 'el-icon-info'
+        },
+        component: Layout,
+        children: [
+            {
+                path: '',
+                name: 'Render',
+                meta: {
+                    title: 'render',
+                    icon: 'el-icon-info'
+                },
+                component: () => import('@/views/render/render')
+            }
+        ]
     }
 ]
 const router = new VueRouter({
