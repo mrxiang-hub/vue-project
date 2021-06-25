@@ -8,9 +8,17 @@
         @close="closeModal"
     >
       <el-scrollbar class="main" :native="false">
-        <el-form :modal="ruleForm" :rules="rules" ref="ruleForm">
-          <el-form-item prop="name">
+        <el-form :modal="ruleForm"
+                 :rules="rules"
+                 ref="ruleForm"
+                 label-width="100px"
+                 label-position="left"
+        >
+          <el-form-item prop="name" label="姓名">
             <el-input v-model="ruleForm.name"></el-input>
+          </el-form-item>
+          <el-form-item prop="age" label="年龄">
+            <el-input v-model="ruleForm.age"></el-input>
           </el-form-item>
         </el-form>
       </el-scrollbar>
@@ -34,11 +42,15 @@ export default {
   data() {
     return {
       ruleForm: {},
-      rules: [
-        {
-          
-        }
-      ]
+      rules: {
+        name: [
+          {
+            required: true,
+            message: '名称不能为空',
+            trigger: blur
+          }
+        ]
+      }
     }
   }
 }
