@@ -8,7 +8,7 @@
         @close="closeModal"
     >
       <el-scrollbar class="main" :native="false">
-        <el-form :modal="ruleForm"
+        <el-form :model="ruleForm"
                  :rules="rules"
                  ref="ruleForm"
                  label-width="100px"
@@ -24,7 +24,7 @@
       </el-scrollbar>
       <template #footer>
         <div>
-          <el-button>重置</el-button>
+          <el-button @click="resetForm('ruleForm')">重置</el-button>
           <el-button type="primary">确认</el-button>
           <el-button type="danger" @click="closeModal">取消</el-button>
         </div>
@@ -44,11 +44,10 @@ export default {
       ruleForm: {},
       rules: {
         name: [
-          {
-            required: true,
-            message: '名称不能为空',
-            trigger: blur
-          }
+          {required: true, message: '姓名不能五日空', trigger: 'change'},
+        ],
+        age: [
+          {required: true, message: '年龄不能为空', trigger: 'change'},
         ]
       }
     }

@@ -18,6 +18,14 @@ const myMixin = {
          */
         closeModal() {
             this.isShow = false;
+        },
+        /**
+         * 重置表单
+         * @param formName
+         */
+        resetForm(formName) {
+            this.$refs[formName].resetFields();
+            console.log(111)
         }
     },
     computed: {}
