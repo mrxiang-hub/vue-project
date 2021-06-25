@@ -8,16 +8,15 @@
         @close="closeModal"
     >
       <el-scrollbar class="main" :native="false">
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
-        <div class="item"></div>
+        <el-form :modal="ruleForm" :rules="rules" ref="ruleForm">
+          <el-form-item prop="name">
+            <el-input v-model="ruleForm.name"></el-input>
+          </el-form-item>
+        </el-form>
       </el-scrollbar>
       <template #footer>
         <div>
+          <el-button>重置</el-button>
           <el-button type="primary">确认</el-button>
           <el-button type="danger" @click="closeModal">取消</el-button>
         </div>
@@ -32,6 +31,16 @@ import myMixin from "@/views/mix/myMixin";
 export default {
   name: "example1",
   mixins: [myMixin],
+  data() {
+    return {
+      ruleForm: {},
+      rules: [
+        {
+          
+        }
+      ]
+    }
+  }
 }
 </script>
 
