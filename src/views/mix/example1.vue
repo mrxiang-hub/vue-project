@@ -1,6 +1,28 @@
 <template>
-  <div>
-    混入1
+  <div class="example1">
+    <el-button type="primary" @click="showModal">显示弹窗</el-button>
+    <el-dialog
+        title="demo"
+        :visible.sync="isShow"
+        width="40%"
+        @close="closeModal"
+    >
+      <el-scrollbar class="main" :native="false">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+      </el-scrollbar>
+      <template #footer>
+        <div>
+          <el-button type="primary">确认</el-button>
+          <el-button type="danger" @click="closeModal">取消</el-button>
+        </div>
+      </template>
+    </el-dialog>
   </div>
 </template>
 
@@ -14,5 +36,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.main {
+  height: 400px;
 
+  .item {
+    width: 100px;
+    height: 100px;
+    background: #F56C6C;
+    margin: 10px;
+  }
+}
 </style>

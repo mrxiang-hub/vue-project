@@ -42,11 +42,6 @@ export default {
 .el-scrollbar {
   height: 100%;
   background: #304156;
-  overflow-x: hidden;
-
-  ::v-deep .el-scrollbar__wrap {
-    overflow-x: hidden;
-  }
 
   .el-menu {
     border: none;
