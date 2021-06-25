@@ -178,9 +178,9 @@ export const routes = [
         ]
     },
     {
-        path:'/hole',
+        path: '/hole',
         meta: {
-            title:'插槽',
+            title: '插槽',
             icon: 'el-icon-s-shop'
         },
         component: Layout,
@@ -193,6 +193,32 @@ export const routes = [
                     icon: 'el-icon-s-shop'
                 },
                 component: () => import('@/views/hole/hole')
+            }
+        ]
+    },
+    {
+        path: '/mix',
+        meta: {
+            title: '混入',
+            icon: 'el-icon-upload'
+        },
+        component: Layout,
+        children: [
+            {
+                path: 'example1',
+                name: 'Example1',
+                meta: {
+                    title: '组件1'
+                },
+                component: () => import('@/views/mix/example1')
+            },
+            {
+                path: 'example2',
+                name: 'Example2',
+                meta: {
+                    title: '组件2'
+                },
+                component: () => import('@/views/mix/example2')
             }
         ]
     }
