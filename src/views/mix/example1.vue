@@ -41,7 +41,10 @@ export default {
   mixins: [myMixin],
   data() {
     return {
-      ruleForm: {},
+      ruleForm: {
+        name: '',
+        age: ''
+      },
       rules: {
         name: [
           {required: true, message: '姓名不能五日空', trigger: 'change'},
