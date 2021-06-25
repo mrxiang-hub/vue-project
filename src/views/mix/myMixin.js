@@ -25,7 +25,6 @@ const myMixin = {
          */
         resetForm(formName) {
             this.$refs[formName].resetFields();
-            console.log(111)
         }
     },
     computed: {}
