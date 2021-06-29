@@ -6,11 +6,19 @@ export default {
       type: Number
     }
   },
+  data() {
+    return {
+      str: '小明'
+    }
+  },
   render(createElement) {
     return createElement(
         `h${this.level}`,
         {},
-        this.$slots.default
+        [
+          this.$slots.desc,
+          this.$slots.default,
+        ]
     )
   }
 }

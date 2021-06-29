@@ -1,7 +1,12 @@
 <template>
   <div>
     <LevelTitle :level="1">
-      hello render
+      <template #desc="">
+        <div>hello Vue</div>
+      </template>
+      <template #default>
+        hello render
+      </template>
     </LevelTitle>
   </div>
 </template>
