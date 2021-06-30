@@ -18,6 +18,7 @@ export default {
         [
           this.$slots.desc,
           this.$slots.default,
+          this.$scopedSlots.info({name: '作用域插槽'}),
         ]
     )
   }

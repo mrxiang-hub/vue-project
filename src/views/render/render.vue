@@ -1,11 +1,20 @@
 <template>
   <div>
     <LevelTitle :level="1">
-      <template #desc="">
-        <div>hello Vue</div>
+      <template #desc>
+        <div>
+          hello Vue
+        </div>
       </template>
       <template #default>
-        hello render
+        <div>
+          hello render
+        </div>
+      </template>
+      <template #info="{name}">
+        <div>
+          {{ name }}
+        </div>
       </template>
     </LevelTitle>
   </div>
