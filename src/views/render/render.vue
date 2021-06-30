@@ -1,18 +1,18 @@
 <template>
   <div>
-    <LevelTitle :level="1">
+    <LevelTitle :level="1" @handle="handle">
       <template #desc>
-        <div>
+        <div class="hole">
           hello Vue
         </div>
       </template>
       <template #default>
-        <div>
+        <div class="hole">
           hello render
         </div>
       </template>
       <template #info="{name}">
-        <div>
+        <div class="hole">
           {{ name }}
         </div>
       </template>
@@ -27,10 +27,18 @@ export default {
   name: "render",
   components: {
     LevelTitle
+  },
+  methods: {
+    handle(data) {
+      console.log(data)
+    }
   }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.hole {
+  line-height: 40px;
+}
 
 </style>
