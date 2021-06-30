@@ -16,6 +16,11 @@
           {{ name }}
         </div>
       </template>
+      <template #demo="{name}">
+        <div class="hole">
+          {{ name }}
+        </div>
+      </template>
     </LevelTitle>
   </div>
 </template>

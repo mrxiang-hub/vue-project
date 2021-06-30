@@ -3,7 +3,7 @@ export default {
   name: "levelTitle",
   props: {
     level: {
-      type: Number
+      type: Number,
     }
   },
   data() {
@@ -30,7 +30,8 @@ export default {
         [
           this.$slots.desc,
           this.$slots.default,
-          this.$scopedSlots.info({name: '作用域插槽'}),
+          this.$scopedSlots.info({name: this.str}),
+          this.$scopedSlots.demo({name: this.level}),
         ]
     )
   }
